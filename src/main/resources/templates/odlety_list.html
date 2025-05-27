@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Seznam odletů</title>
+</head>
+<body>
+<h1>Seznam odletů z letiště <span th:text="${searchForm.airport}">?</span></h1>
+<table>
+    <thead>
+    <tr>
+        <th>Číslo letu</th><th>Letiště</th><th>Čas odletu</th><th>Další atributy…</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="od : ${seznamOdletu}">
+        <td th:text="${od.flightNumber}">---</td>
+        <td th:text="${od.airport}">---</td>
+        <td th:text="${od.departureTime}">---</td>
+        <td>…</td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/odletyapp}">Nové hledání</a>
+</body>
+</html>

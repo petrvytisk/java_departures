@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Vyhledání odletů</title>
+</head>
+<body>
+<h1>Vyhledání odletů</h1>
+<form th:action="@{/odletyapp}" th:object="${searchForm}" method="post">
+    <label>Letiště:
+        <input type="text" th:field="*{airport}" />
+        <div th:if="${#fields.hasErrors('airport')}" th:errors="*{airport}"></div>
+    </label><br/>
+    <label>Od:
+        <input type="datetime-local" th:field="*{from}" />
+        <div th:if="${#fields.hasErrors('from')}" th:errors="*{from}"></div>
+    </label><br/>
+    <label>Do:
+        <input type="datetime-local" th:field="*{to}" />
+        <div th:if="${#fields.hasErrors('to')}" th:errors="*{to}"></div>
+    </label><br/>
+    <button type="submit">Hledat</button>
+</form>
+</body>
+</html>
